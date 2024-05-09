@@ -18,7 +18,6 @@ Things to do:
 ## Table of Contents
 
 - [Feature Highlights](#feature-highlights)
-- [Roadmap of TODOs](docs/TODO.md)
 - [Requirements](#requirements)
 - [Structure](#structure-quick-reference)
 - [Adding a New Host](docs/addnewhost.md)
