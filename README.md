@@ -14,6 +14,7 @@ Things to do:
 * Look at compiling to ISO for live installer.
 * Explore using sops-nix for secrets-management which I intend to do when time allows.
 
+# What follows is EmergentMind's original README
 
 ## Table of Contents
 
