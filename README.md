@@ -6,7 +6,7 @@
 
 # muoscar's Nix-Config
 
-This is my nixOS configuration based on EmergentMind's [personal configuration](https://github.com/EmergentMind/nix-config).
+This is my nixOS configuration very much based on EmergentMind's [personal configuration](https://github.com/EmergentMind/nix-config).
 It is still a work in progress as I have yet to go over and reevaluate the need/value of everything in the configuration but it is at a state where I used it to satisfy my daily needs.
 
 Things to do:
