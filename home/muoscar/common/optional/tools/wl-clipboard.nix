@@ -1,4 +1,1 @@
-{ pkgs, ... }:
-{
-  home.packages = [ pkgs.wl-clipboard ];
-}
+{ pkgs, ... }: { home.packages = [ pkgs.wl-clipboard ]; }
