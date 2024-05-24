@@ -6,7 +6,7 @@
     "height": 35, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 5, // Gaps between modules [px]
-    "start_hidden": true,
+    "start_hidden": false,
 
     // Choose the order of the modules
     "modules-left": [
@@ -17,6 +17,7 @@
     ],
     "modules-right": [
         "tray",
+        "bluetooth",
         "pulseaudio",
         "idle_inhibitor",
         "network",
@@ -35,23 +36,35 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
                                                                    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
+
+    "bluetooth": {
+	"format": "{status}  ",
+	"format-connected": "{device_alias}  ",
+	"format-connected-battery": "{device_alias} {device_battery_percentage}%  ",
+    "format-disabled": "", // an empty format will hide the module
+	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
+
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        // "format": "{volume}% {icon}  {format_source}",
         "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon}  {format_source}",
-        "format-bluetooth-muted": " {icon}  {format_source}",
-        "format-muted": "  {format_source}", // " {format_source}",
+        "format-muted": "  {format_source}",
         "format-source": "",
         "format-source-muted": "",
+        //"format-bluetooth": "{volume}% {icon}   {format_source}",
+        //"format-bluetooth-muted": "    {format_source}",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
+            "headphone": "󰋋",
+            "hands-free": "hands-free",
+            "headset": "󰋎",
+            "phone": "",
             "portable": "",
             "car": "",
-            "default": [ "", "", "" ]
+            "default": [ "", "", "" ],
         },
         "on-click": "pavucontrol"
     },

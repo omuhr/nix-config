@@ -20,16 +20,19 @@
     };
 
     # neovim overlay with the nightly build
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # ngrams data for ltex grammar
     ngrams = {
       url = "github:Janik-Haag/nix-languagetool-ngram/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # status bar for zellij
+    zjstatus = { url = "github:dj95/zjstatus"; };
   };
 
-  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;
@@ -73,10 +76,7 @@
 
         # work
         feynman = lib.nixosSystem {
-          modules = [
-            ./hosts/feynman
-            { nixpkgs.overlays = [ neovim-nightly-overlay.overlay ]; }
-          ];
+          modules = [ ./hosts/feynman ];
           specialArgs = { inherit inputs outputs; };
         };
       };
@@ -87,10 +87,7 @@
 
       homeConfigurations = {
         "muoscar@feynman" = lib.homeManagerConfiguration {
-          modules = [
-            ./home/muoscar/feynman.nix
-            { nixpkgs.overlays = [ neovim-nightly-overlay.overlay ]; }
-          ];
+          modules = [ ./home/muoscar/feynman.nix ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
         };

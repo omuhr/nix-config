@@ -3,7 +3,6 @@
 
     # Packages with custom configs go here
 
-    ./bash.nix # backup shell
     ./bat.nix # cat with better syntax highlighting and extras like batgrep.
     # ./direnv.nix # shell environment manager. Hooks inot shell direnv to look for .envrc before prompts
     ./fonts.nix # core fonts
@@ -11,9 +10,14 @@
     ./kitty.nix # terminal
     ./wezterm/wezterm.nix # terminal
     ./neovim # vim goodness
+    ./zellij # multiplexer
     ./screen.nix # hopefully rarely needed but good to have if so
     ./zoxide.nix # cd replacement
     ./zsh # primary shell: includes zsh
+    ./nushell.nix # fun shell
+    ./bash.nix # backup shell
+    ./starship.nix # cross-shell prompt
+    ./carapace.nix # shell completions
 
     # TODO: Not set, need to investigate but will need custom config if used:
     # ./shellcolor.nix
@@ -38,29 +42,29 @@
   home.packages = builtins.attrValues {
     inherit (pkgs)
 
-      # Packages that don't have custom configs go here
+    # Packages that don't have custom configs go here
 
-      # TODO: spaces before comment are removed by nixpkgs-fmt
-      # See: https://github.com/nix-community/nixpkgs-fmt/issues/305
-      borgbackup# backups
-      btop# resource monitor
-      coreutils# basic gnu utils
+    # TODO: spaces before comment are removed by nixpkgs-fmt
+    # See: https://github.com/nix-community/nixpkgs-fmt/issues/305
+      borgbackup # backups
+      btop # resource monitor
+      coreutils # basic gnu utils
       # curl
-      eza# ls replacement
-      fd# tree style ls
-      findutils# find
-      fzf# fuzzy search
-      jq# JSON pretty printer and manipulator
-      nix-tree# nix package tree viewer
-      ncdu# TUI disk usage
-      pciutils pfetch# system info
-      pre-commit# git hooks
-      p7zip# compression & encryption
-      ripgrep# better grep
-      usbutils tree# cli dir tree viewer
-      unzip# zip extraction
-      unrar# rar extraction
-      wget# downloader
+      eza # ls replacement
+      fd # tree style ls
+      findutils # find
+      fzf # fuzzy search
+      jq # JSON pretty printer and manipulator
+      nix-tree # nix package tree viewer
+      ncdu # TUI disk usage
+      pciutils pfetch # system info
+      pre-commit # git hooks
+      p7zip # compression & encryption
+      ripgrep # better grep
+      usbutils tree # cli dir tree viewer
+      unzip # zip extraction
+      unrar # rar extraction
+      wget # downloader
       zip; # zip compression
   };
 

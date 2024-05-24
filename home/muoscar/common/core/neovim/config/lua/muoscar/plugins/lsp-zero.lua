@@ -205,6 +205,11 @@ return {
 					additionalRules = {
 						languageModel = "~/ngrams/share/languagetool/ngrams/",
 					},
+					latex = {
+						environments = {
+							nalign = "ignore", -- don't check my custom math environment called nalign
+						},
+					},
 				},
 			},
 		})

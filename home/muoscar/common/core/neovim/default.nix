@@ -17,12 +17,11 @@ let
 
   nodePackagesGrammarly =
     import ./grammarly-languageserver/default.nix { inherit pkgs; };
-in
-{
+in {
   programs.neovim = {
     enable = true;
-    # package = pkgs.unstable.neovim-unwrapped;
-    package = pkgs.neovim-nightly;
+    package = pkgs.unstable.neovim-unwrapped;
+    # package = pkgs.neovim-nightly;
     withRuby = true;
     withNodeJs = true;
     withPython3 = true;
@@ -62,6 +61,8 @@ in
       rustfmt
     ];
   };
+
+  home.packages = [ pkgs.tree-sitter ];
 
   xdg.configFile.nvim = {
     source = ./config;

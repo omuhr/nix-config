@@ -1,9 +1,9 @@
 # #################################
-#                                #
-#  Feynman - Work Thinkpad P43s  #
-#  NixOS running on work laptop  #
-#                                #
-##################################
+#                                 #
+#  Dirac - Home desktop           #
+#  NixOS running on home desktop  #
+#                                 #
+###################################
 
 { inputs, ... }: {
   imports = [
@@ -45,34 +45,21 @@
   };
 
   hardware.printers = {
-    ensurePrinters = [
-      {
-        name = "Find-Me-Print";
-        location = "Chalmers";
-        deviceUri = "smb://papercut.chalmers.se/Find-Me-Print";
-        model = "drv:///sample.drv/generic.ppd";
-        ppdOptions = {
-          Option1 = "True"; # Enable duplexing
-          # auth-info-required = "negotiate";
-          auth-info-required = "username,password";
-        };
-      }
-      {
-        name = "O-6108-COLOR3";
-        location = "Chalmers-Floor6-HEP";
-        deviceUri = "smb://papercut.chalmers.se/O-6108-COLOR3";
-        model = "drv:///sample.drv/generic.ppd";
-        ppdOptions = {
-          Option1 = "True"; # Enable duplexing
-          # auth-info-required = "negotiate";
-          auth-info-required = "username,password";
-        };
-      }
-    ];
+    ensurePrinters = [{
+      name = "Find-Me-Print";
+      location = "Chalmers";
+      deviceUri = "smb://papercut.chalmers.se/Find-Me-Print";
+      model = "drv:///sample.drv/generic.ppd";
+      ppdOptions = {
+        Option1 = "True"; # Enable duplexing
+        # auth-info-required = "negotiate";
+        auth-info-required = "username,password";
+      };
+    }];
   };
 
   networking = {
-    hostName = "feynman";
+    hostName = "dirac";
     networkmanager.enable = true;
     enableIPv6 = false;
   };

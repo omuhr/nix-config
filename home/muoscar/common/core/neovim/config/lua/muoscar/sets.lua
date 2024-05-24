@@ -11,14 +11,14 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Wrap lines
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- Swap & backups
 vim.opt.swapfile = false
 vim.opt.backup = false
 
 -- Persistent undo tree
-vim.opt.undodir = vim.env.HOME .. '/.vim/undodir'
+vim.opt.undodir = vim.env.HOME .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- Search

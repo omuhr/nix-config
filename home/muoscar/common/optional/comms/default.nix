@@ -1,1 +1,1 @@
-{ imports = [ ./teams.nix ]; }
+{ imports = [ ]; }

@@ -56,6 +56,7 @@
 
 /* Each module */
 #workspaces,
+#bluetooth,
 #pulseaudio,
 #idle_inhibitor,
 #network,

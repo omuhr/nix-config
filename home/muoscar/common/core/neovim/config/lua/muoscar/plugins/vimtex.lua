@@ -104,5 +104,20 @@ return {
 				concealchar = "𝓛",
 			},
 		}
+		-- custom math environment, behaves like align but only has a single equation number
+		vim.g.vimtex_syntax_custom_envs = {
+			{
+				mathmode = true,
+				name = "custom",
+			},
+		}
+		vim.cmd([[
+    		  let g:vimtex_syntax_custom_envs = [
+    		        \ {
+     		        \   'name': 'nalign',
+    		        \   'math': v:true
+    		        \ },
+    		        \]
+    		  ]])
 	end,
 }
