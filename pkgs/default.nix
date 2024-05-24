@@ -4,5 +4,5 @@
   #################### Packages with external source ####################
 
   cd-gitroot = pkgs.callPackage ./cd-gitroot { };
-  zjstatus = pkgs.callPackage ./zjstatus { };
+  # zjstatus = pkgs.callPackage ./zjstatus { };
 }

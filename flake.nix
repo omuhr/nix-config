@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # neovim overlay with the nightly build
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
@@ -32,7 +37,7 @@
     zjstatus = { url = "github:dj95/zjstatus"; };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;
@@ -74,6 +79,12 @@
         #   specialArgs = { inherit inputs outputs; };
         # };
 
+        # home desktop
+        dirac = lib.nixosSystem {
+          modules = [ ./hosts/dirac ];
+          specialArgs = { inherit inputs outputs; };
+        };
+
         # work
         feynman = lib.nixosSystem {
           modules = [ ./hosts/feynman ];
@@ -86,8 +97,17 @@
       # Typically adopted using 'home-manager switch --flake .#primary-username@hostname'
 
       homeConfigurations = {
+        "muoscar@dirac" = lib.homeManagerConfiguration {
+          modules =
+            [ ./home/muoscar/dirac.nix nix-index-database.hmModules.nix-index ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+        };
         "muoscar@feynman" = lib.homeManagerConfiguration {
-          modules = [ ./home/muoscar/feynman.nix ];
+          modules = [
+            ./home/muoscar/feynman.nix
+            nix-index-database.hmModules.nix-index
+          ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
         };

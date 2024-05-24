@@ -19,6 +19,8 @@
     ./starship.nix # cross-shell prompt
     ./carapace.nix # shell completions
 
+    ./comma.nix # run commands without installing them i.e.: , ripgrep whatever
+
     # TODO: Not set, need to investigate but will need custom config if used:
     # ./shellcolor.nix
 
