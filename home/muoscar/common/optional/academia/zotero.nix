@@ -1,4 +1,1 @@
-{ pkgs, ... }:
-{
-  home.packages = [ pkgs.zotero ];
-}
+{ pkgs, ... }: { home.packages = [ pkgs.unstable.zotero ]; }
