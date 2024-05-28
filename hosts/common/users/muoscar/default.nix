@@ -23,7 +23,7 @@ in {
   '';
 
   # Import this user's personal/home configurations
-  home-manager.users.muoscar =
-    import ../../../../home/muoscar/${config.networking.hostName}.nix;
+  # home-manager.users.muoscar =
+  #   import ../../../../home/muoscar/${config.networking.hostName}.nix;
 
 }
