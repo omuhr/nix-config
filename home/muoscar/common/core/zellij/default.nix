@@ -5,6 +5,7 @@
     package = pkgs.unstable.zellij;
     settings = {
       pane_frames = false;
+      default_mode = "locked";
       # on_force_quit = "close";
       theme = "gruber_darker";
       themes = {
