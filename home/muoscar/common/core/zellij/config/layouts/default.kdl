@@ -29,9 +29,9 @@ layout {
                 datetime_format "%H:%M"
                 datetime_timezone "Europe/Berlin"
 
-                mode_normal        "#[bg=#FFDD33] "
-                mode_locked        "#[bg=#282828] "
-                mode_tmux        "#[bg=#73D936] {name} "
+                mode_normal        "#[bg=#73C936] "
+                mode_locked        "#[bg=#FFDD33] "
+                mode_tmux        "#[bg=#CC8C3C] {name} "
                 mode_default_to_mode "tmux"
             }
         }
