@@ -40,6 +40,7 @@ return {
 				-- Conform will run multiple formatters sequentially
 				nix = { "nixfmt" },
 				json = { "jq" },
+				rs = { "rustfmt" },
 			},
 			format_on_save = {
 				-- These options will be passed to conform.format()
@@ -177,6 +178,8 @@ return {
 		})
 
 		lspconfig.rust_analyzer.setup({})
+
+		lspconfig.taplo.setup({})
 
 		lspconfig.texlab.setup({})
 		lspconfig.ltex.setup({

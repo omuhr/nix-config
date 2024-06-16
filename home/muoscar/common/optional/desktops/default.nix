@@ -5,6 +5,7 @@
     ./hyprland
     ./waybar
     ./fuzzel.nix
+    ./swww.nix
     # ./apple-cursor.nix
 
     ########## Utilities ##########

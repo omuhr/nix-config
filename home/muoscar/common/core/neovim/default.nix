@@ -42,6 +42,9 @@ in {
       # Rust
       rust-analyzer
 
+      # TOML
+      taplo
+
       # Grammar
       # nodePackages_latest.grammarly-languageserver
       nodePackagesGrammarly.grammarly-languageserver-next

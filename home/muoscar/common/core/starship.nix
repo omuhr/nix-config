@@ -13,10 +13,23 @@
         style = "bold bright-yellow";
         truncation_length = 8;
       };
-      git_branch.format = "[$symbol$branch(:$remote_branch)]($style)";
-      format =
-        lib.concatStrings [ "$username" "$hostname" "$directory" "$character" ];
+      git_branch.format = "[$branch(:$remote_branch)]($style)";
+
+      nix_shell.format = "[$symbol$state( ($name))](bold blue) ";
+
+      format = lib.concatStrings [
+        "$username"
+        "$hostname"
+        "$directory"
+        "$git_branch"
+        "$git_state"
+        "$git_status"
+        " "
+        "$character"
+      ];
+
       right_format = lib.concatStrings [
+        "$nix_shell"
         "$c"
         "$cmake"
         "$cobol"
@@ -62,9 +75,6 @@
         "$vlang"
         "$vagrant"
         "$zig"
-        "$git_branch"
-        "$git_state"
-        "$git_status"
         "$cmd_duration"
       ];
       # format = lib.concatStrings [
