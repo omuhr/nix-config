@@ -75,7 +75,7 @@
     hostName = "feynman";
     networkmanager.enable = true;
     enableIPv6 = true;
-    allowedTCPPorts = [ 32123 ];
+    firewall.allowedTCPPorts = [ 32123 ];
   };
 
   hardware.bluetooth.enable = true;
