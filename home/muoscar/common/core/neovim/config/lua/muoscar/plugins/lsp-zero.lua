@@ -179,6 +179,11 @@ return {
 
 		lspconfig.rust_analyzer.setup({})
 
+		lspconfig.pyright.setup({})
+
+		lspconfig.clangd.setup({})
+		lspconfig.ccls.setup({})
+
 		lspconfig.taplo.setup({})
 
 		lspconfig.texlab.setup({})

@@ -71,6 +71,10 @@
     ];
   };
 
+  services.udev.extraRules = ''
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="23a3", GROUP="users", MODE="0666"
+  '';
+
   networking = {
     hostName = "feynman";
     networkmanager.enable = true;

@@ -42,6 +42,9 @@ in {
       # Rust
       rust-analyzer
 
+      # Python
+      pyright
+
       # TOML
       taplo
 
