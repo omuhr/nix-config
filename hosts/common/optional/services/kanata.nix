@@ -20,7 +20,7 @@
            hold-time 200
           )
           (defalias
-           caps (tap-hold 100 100 esc lctl)
+           caps (tap-hold $tap-time $hold-time esc caps)
            a (tap-hold $tap-time $hold-time a lmet)
            s (tap-hold $tap-time $hold-time s lalt)
            d (tap-hold $tap-time $hold-time d lsft)

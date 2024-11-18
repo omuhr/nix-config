@@ -12,6 +12,7 @@ in {
       "video"
       "input"
       "dialout"
+      "uinput"
     ] # Input gives waybar the access it needs
       ++ ifTheyExist [ "docker" "git" "mysql" "network" ];
 
