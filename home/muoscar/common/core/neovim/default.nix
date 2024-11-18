@@ -25,7 +25,7 @@ in {
     withRuby = true;
     withNodeJs = true;
     withPython3 = true;
-    extraPackages = with pkgs; [
+    extraPackages = with pkgs.unstable; [
       ################# Language servers #################
 
       # nix
@@ -43,7 +43,8 @@ in {
       rust-analyzer
 
       # Python
-      pyright
+      ruff
+      python311Packages.jedi-language-server
 
       # TOML
       taplo

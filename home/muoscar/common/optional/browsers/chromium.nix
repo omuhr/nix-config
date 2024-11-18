@@ -1,9 +1,8 @@
-{
+{ pkgs, ... }: {
   programs.chromium = {
     enable = true;
-    commandLineArgs = [
-      "--no-default-browser-check"
-      "--restore-last-sesion"
-    ];
+    # package = pkgs.unstable.ungoogled-chromium;
+    package = pkgs.unstable.chromium;
+    commandLineArgs = [ "--no-default-browser-check" "--restore-last-sesion" ];
   };
 }

@@ -1,6 +1,8 @@
 -- Line numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 
 -- Tabs & indenting
 vim.opt.tabstop = 4

@@ -1,4 +1,6 @@
-{ pkgs, lib, ... }: {
+{ pkgs, inputs, lib, ... }:
+let hyprlandPackage = pkgs.hyprland;
+in {
   # imports = [
   #   # custom key binds
   #   ./binds.nix
@@ -8,6 +10,8 @@
   #
   wayland.windowManager.hyprland = {
     enable = true;
+    package = hyprlandPackage;
+    systemd.enable = true;
     # plugins = [];
 
     settings = {

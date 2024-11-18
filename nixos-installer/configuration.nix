@@ -24,6 +24,6 @@
     (builtins.readFile ../hosts/common/users/ta/keys/id_meek.pub)
   ];
 
-  #system.stateVersion = "23.11";
+  #system.stateVersion = "24.05";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

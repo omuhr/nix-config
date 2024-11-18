@@ -9,6 +9,8 @@
     ./git.nix # personal git config
     ./kitty.nix # terminal
     ./wezterm/wezterm.nix # terminal
+    ./alacritty/alacritty.nix # terminal
+    ./man-pages.nix # manual pages for linux syscalls and C
     ./neovim # vim goodness
     ./zellij # multiplexer
     ./screen.nix # hopefully rarely needed but good to have if so
@@ -18,6 +20,8 @@
     ./bash.nix # backup shell
     ./starship.nix # cross-shell prompt
     ./carapace.nix # shell completions
+
+    ./ssh.nix # ssh config
 
     ./comma.nix # run commands without installing them i.e.: , ripgrep whatever
 
@@ -29,7 +33,7 @@
   home = {
     username = lib.mkDefault "muoscar";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
-    stateVersion = lib.mkDefault "23.11";
+    stateVersion = lib.mkDefault "24.05";
     sessionPath = [ "$HOME/.local/bin" "$HOME/scripts/talon_scripts" ];
     sessionVariables = {
       FLAKE = "$HOME/src/nix-config";

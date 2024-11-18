@@ -1,27 +1,21 @@
-{ outputs, lib, ... }:
-{
+{ pkgs, outputs, lib, ... }: {
   programs.ssh = {
     enable = true;
-
+    package = pkgs.unstable.openssh;
     matchBlocks = {
-      "yubikey-hosts" = {
-        host = "gitlab.com github.com";
-        identitiesOnly = true;
-        identityFile = [
-          "~/.ssh/id_yubikey" # This is an auto symlink to whatever yubikey is plugged in. See hosts/common/optional/yubikey
-          "~/.ssh/id_mila"
-          "~/.ssh/id_manu" # fallback to id_manu if yubis aren't present
-        ];
+      pluto = {
+        user = "pi";
+        hostname = "pluto";
+      };
+      mvp2 = {
+        user = "root";
+        hostname = "192.168.10.1";
+        proxyJump = "pluto";
       };
     };
-    # FIXME: This should probably be for git systems only?
-    #controlMaster = "auto";
-    #controlPath = "~/.ssh/sockets/S.%r@%h:%p";
-    #controlPersist = "60m";
 
     #extraConfig = ''
     #Include config.d/*
     #'';
   };
-  #  home.file.".ssh/sockets/.keep".text = "# Managed by Home Manager";
 }

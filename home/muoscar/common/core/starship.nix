@@ -10,12 +10,17 @@
       # };
       fill.symbol = " ";
       directory = {
-        style = "bold bright-yellow";
+        style = "bold yellow";
         truncation_length = 8;
       };
       git_branch.format = "[$branch(:$remote_branch)]($style)";
 
-      nix_shell.format = "[$symbol$state( ($name))](bold blue) ";
+      git_state.format =
+        "\\([$state( $progress_current/$progress_total)]($style)\\)";
+
+      git_status.format = "([\\[$all_status$ahead_behind\\]]($style))";
+
+      nix_shell.format = "[$symbol](bold blue)";
 
       format = lib.concatStrings [
         "$username"
@@ -24,7 +29,6 @@
         "$git_branch"
         "$git_state"
         "$git_status"
-        " "
         "$character"
       ];
 
@@ -109,7 +113,7 @@
       #   "$gradle"
       #   "$lua"
       #   "$nim"
-      #   "$nodejs"
+      #   "$nodejs"'([\[$all_status$ahead_behind\]]($style) )'
       #   "$ocaml"
       #   "$opa"
       #   "$perl"
@@ -134,6 +138,13 @@
       #   "$line_break"
       #   "$character"
       # ];
+
+      c = {
+        format = "[C ]($style)";
+        detect_files = [ "" ];
+        detect_folders = [ "include" ];
+      };
+
       bun.format = "[$symbol]($style)";
       buf.format = "[$symbol]($style)";
       cmake.format = "[$symbol]($style)";

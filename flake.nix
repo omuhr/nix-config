@@ -4,7 +4,7 @@
   inputs = {
     #################### Official NixOS Package Sources ####################
 
-    nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-24.05";
     nixpkgs-unstable.url =
       "github:NixOS/nixpkgs/nixos-unstable"; # also see 'unstable-packages' overlay at 'overlays/default.nix"
 
@@ -15,7 +15,7 @@
 
     # Home-manager for declaring user/home configurations
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -35,6 +35,15 @@
 
     # status bar for zellij
     zjstatus = { url = "github:dj95/zjstatus"; };
+
+    # latest hyprland
+    hyprland.url = "github:hyprwm/hyprland";
+
+    # zen browser
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
+
+    # zen browser
+    ags.url = "github:Aylur/ags";
   };
 
   outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
@@ -107,6 +116,7 @@
           modules = [
             ./home/muoscar/feynman.nix
             nix-index-database.hmModules.nix-index
+            inputs.ags.homeManagerModules.default
           ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };

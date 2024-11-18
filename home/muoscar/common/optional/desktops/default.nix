@@ -4,8 +4,12 @@
 
     ./hyprland
     ./waybar
+    ./ags
+    ./swaync
     ./fuzzel.nix
     ./swww.nix
+    ./ulauncher.nix
+    ./kanshi.nix
     # ./apple-cursor.nix
 
     ########## Utilities ##########

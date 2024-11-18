@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }: {
+{ pkgs, inputs, ... }: {
   programs.zellij = {
     enable = true;
     enableZshIntegration = false; # This autolaunches zellij

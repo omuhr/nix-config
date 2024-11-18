@@ -179,10 +179,29 @@ return {
 
 		lspconfig.rust_analyzer.setup({})
 
-		lspconfig.pyright.setup({})
+		lspconfig.ruff.setup({})
+		lspconfig.jedi_language_server.setup({})
 
-		lspconfig.clangd.setup({})
-		lspconfig.ccls.setup({})
+		local handle = io.popen("command -v avr-gcc") -- this gets path to program on unix
+		local avr_gcc
+		if handle then
+			avr_gcc = handle:read("*a"):sub(1, -2)
+			handle:close()
+		else
+			avr_gcc = nil
+		end
+		local handle = io.popen("command -v clangd") -- this gets path to program on unix
+		local clangd
+		if handle then
+			clangd = handle:read("*a"):sub(1, -2)
+			handle:close()
+		else
+			clangd = nil
+		end
+		lspconfig.clangd.setup({
+			cmd = { clangd, avr_gcc and "--query-driver=" .. avr_gcc },
+		})
+		-- lspconfig.ccls.setup({})
 
 		lspconfig.taplo.setup({})
 
