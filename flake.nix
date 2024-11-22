@@ -40,9 +40,9 @@
     hyprland.url = "github:hyprwm/hyprland";
 
     # zen browser
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
-    # zen browser
+    # ags
     ags.url = "github:Aylur/ags";
   };
 
@@ -94,9 +94,15 @@
           specialArgs = { inherit inputs outputs; };
         };
 
-        # work
+        # work Thinkpad P43s
         feynman = lib.nixosSystem {
           modules = [ ./hosts/feynman ];
+          specialArgs = { inherit inputs outputs; };
+        };
+
+        # work Zephyrus G16
+        lagrange = lib.nixosSystem {
+          modules = [ ./hosts/lagrange ];
           specialArgs = { inherit inputs outputs; };
         };
       };
@@ -115,6 +121,15 @@
         "muoscar@feynman" = lib.homeManagerConfiguration {
           modules = [
             ./home/muoscar/feynman.nix
+            nix-index-database.hmModules.nix-index
+            inputs.ags.homeManagerModules.default
+          ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+        };
+        "muoscar@lagrange" = lib.homeManagerConfiguration {
+          modules = [
+            ./home/muoscar/lagrange.nix
             nix-index-database.hmModules.nix-index
             inputs.ags.homeManagerModules.default
           ];
